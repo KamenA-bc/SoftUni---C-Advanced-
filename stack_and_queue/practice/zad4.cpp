@@ -37,7 +37,7 @@ int main()
 
     while(orders.size())
     {
-        if(orders.front() < dailyQuantity)
+        if(orders.front() <= dailyQuantity)
         {
             dailyQuantity -= orders.front();
             orders.pop();
