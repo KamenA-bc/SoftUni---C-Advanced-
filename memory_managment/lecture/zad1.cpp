@@ -1,6 +1,23 @@
 #include <iostream>
-#include <sstream>
-#include <stdexcept>
+
+
+bool cast(const char *text, int &result)
+{
+    result = 0;
+    while(*text != '\0')
+    {
+        if(*text >= '0' && *text <= '9')
+        {
+            result *=10;
+            result += (*text - '0');
+        }
+        else
+            return false;
+        text++;
+    }
+
+    return true;
+}
 
 int main()
 {
@@ -9,29 +26,25 @@ int main()
 
     std::cin >> firstString >> secondString;
 
+    int first,second;
+    bool castedFirst = cast(firstString.c_str(), first);
+    bool castedSecond = cast(secondString.c_str(), second);
 
-    int first , second;
 
-    try
+    if(castedFirst && castedSecond)
     {
-        first = stoi(firstString);
+        std::cout << first + second << std::endl;
     }
-    catch(const std::invalid_argument& e)
+    else
     {
-        std::cout << "[error] " << firstString << std::endl;
-    }
+        if(!castedFirst)
+            std::cout << "[error] ";
+        std::cout << firstString << std::endl;
 
-    
-    try
-    {
-        second = stoi(secondString);
+        if(!castedSecond)
+            std::cout << "[error] ";
+        std::cout << secondString << std::endl;
     }
-    catch(const std::invalid_argument& e)
-    {
-        std::cout << "[error] " << secondString << std::endl;
-    }
-
-    std::cout << first + second;
 
     return 0;
 
