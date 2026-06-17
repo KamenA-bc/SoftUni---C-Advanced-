@@ -57,9 +57,9 @@ int main()
 
     std::cout << "Sum = " << biggestSum << std::endl;
 
-    for(int i = startRow; i < startRow + SQUARE_SIZE - 1; i++)
+    for(int i = startRow; i < startRow + SQUARE_SIZE; i++)
     {
-        for(int j = startCol; j< startCol + SQUARE_SIZE - 1; j++)
+        for(int j = startCol; j< startCol + SQUARE_SIZE; j++)
         {
             std::cout << matrix[i][j] << " "; 
         }
