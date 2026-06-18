@@ -34,7 +34,7 @@
         // std::cin >> searchId;
 
         // auto it = companies.find(searchId);
-        // if(companies.find(searchId) != companies.end())
+        // if(it != companies.end())
         // {
         //     std::cout << it->second << " " << it->first << std::endl;
         // }
