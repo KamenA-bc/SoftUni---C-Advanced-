@@ -5,13 +5,16 @@
 
 #define BUF_SIZE 1024
 
-bool
+bool sortCompanies(const std::pair <int *, const char*> &a, const std::pair <int *, const char*> &b)
+{
+    return (*a.first) < (*b.first);
+}
 
 int main()
 {
     char buf[BUF_SIZE] = {};
     int *nextInt = (int*)buf;
-    char *nextName = (char*)nextInt + 1;
+    char *nextName = (char*)(nextInt + 1);
 
     std::vector < std::pair <int *, const char*> > companies;
 
@@ -35,7 +38,7 @@ int main()
             nextName = (char*)(nextInt + 1);
     }
 
-    sort(companies.begin(), companies.end());
+    sort(companies.begin(), companies.end(), sortCompanies);
 
     for(const auto &company : companies)
     {
